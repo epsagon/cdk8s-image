@@ -31,6 +31,7 @@ const project = new cdk.JsiiProject({
     twineUsernameSecret: 'ARTIFACTORY_USERNAME',
     twinePasswordSecret: 'ARTIFACTORY_TOKEN',
   },
+  releaseToNpm: false,
 });
 
 project.synth();
