@@ -71,9 +71,9 @@ export class Image extends Construct {
         `${arg.name}=${arg.value}`,
       ]) ?? [];
 
-    console.error(`building docker image "${props.dir}"...`);
+    console.error(`building docker image "${tag}"...`);
     shell('docker', 'build', '-t', tag, props.dir, ...buildArgs);
-    console.error(`pushing docker image "${props.dir}"...`);
+    console.error(`pushing docker image "${tag}"...`);
     const push = shell('docker', 'push', tag);
 
     const result = PARSE_DIGEST.exec(push);
