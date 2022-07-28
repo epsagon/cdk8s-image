@@ -1,7 +1,11 @@
 import { spawnSync } from 'child_process';
 
+const MAX_BUFFER_SIZE = 10 * 1024 * 1024;
+
 export function shell(command: string, ...args: string[]) {
-  const proc = spawnSync(command, args);
+  const proc = spawnSync(command, args, {
+    maxBuffer: MAX_BUFFER_SIZE
+  });
 
   if (proc.error) {
     throw new Error(proc.error.message);
